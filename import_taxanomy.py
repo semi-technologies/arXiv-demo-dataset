@@ -12,7 +12,7 @@ import copy
 import uuid
 
 def get_client():
-    client = weaviate.Client("http://localhost:8083")
+    client = weaviate.Client("http://localhost:8080")
     meta_info = client.get_meta()
     print(meta_info)
     return client
