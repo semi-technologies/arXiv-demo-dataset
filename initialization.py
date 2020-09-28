@@ -6,7 +6,7 @@ import sys
 import os
 
 
-client = weaviate.Client("http://localhost:8083")
+client = weaviate.Client("http://localhost:8080")
 
 
 def import_schema(schema_file):
