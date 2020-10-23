@@ -167,10 +167,10 @@ def add_and_return_papers(
         if paper["journal-ref"] is not None:
             paper_object["journalReference"] = paper["journal-ref"]
         if paper["id"] is not None:
-            paper_object["arxivId"] = paper["id"]
+            paper_object["researchPaperId"] = paper["id"]
             uuid_base += paper["id"]
         if paper["submitter"] is not None:
-            paper_object["submitter"] = paper["submitter"]
+            paper_object["reviewer"] = paper["submitter"]
         if paper["abstract"] is not None:
             paper_object["abstract"] = paper["abstract"].replace('\n', ' ')
         if paper["comments"] is not None:
@@ -178,11 +178,11 @@ def add_and_return_papers(
         if paper["report-no"] is not None:
             paper_object["reportNumber"] = paper["report-no"]
         if paper["versions"] is not None:
-            if isinstance(paper["versions"][0], str):  # older arxiv datadump files use versions in a string in one list item
+            if isinstance(paper["versions"][0], str):  # older researchPaper datadump files use versions in a string in one list item
                 paper_object["versionHistory"] = str(paper["versions"]).strip('[]')
                 paper_object["latestVersion"] = paper["versions"][-1]
                 uuid_base += paper_object["latestVersion"]
-            elif isinstance(paper["versions"][0], dict):  # lastest arxiv datadump file uses different version datatypes
+            elif isinstance(paper["versions"][0], dict):  # lastest researchPaper datadump file uses different version datatypes
                 latest_version_number = 0
                 version_history = []
                 for version in paper["versions"]:
@@ -321,7 +321,7 @@ def add_wrotepapers_cref(
 if __name__ == "__main__":
     client = weaviate.Client("http://localhost:8080")
 
-    data = get_metadata('./data/arxiv-metadata-oai.json')
+    data = get_metadata('./data/researchPaper-metadata-oai.json')
 
     # get categories
     result = client.query.get.things("Category", ["name", "uuid"]).do()

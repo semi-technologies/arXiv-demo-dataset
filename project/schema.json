@@ -60,7 +60,7 @@
                             "string"
                         ],
                         "description": "ArXiv ID to access the paper",
-                        "name": "arxivId",
+                        "name": "researchPaperId",
                         "vectorizePropertyName": true,
                         "index": true
                     },
@@ -69,7 +69,7 @@
                             "string"
                         ],
                         "description": "Submitter of the paper",
-                        "name": "submitter",
+                        "name": "reviewer",
                         "vectorizePropertyName": true,
                         "index": true
                     },

@@ -1,14 +1,14 @@
 {
     "metadata_file": "data/arxiv-metadata-oai-snapshot.json",
-    "n_papers": 10,
-    "overwrite_schema": true,
+    "overwrite_schema": false,
     "skip_n_papers": 0,
+    "n_papers": 50,
     "schema": "project/schema.json",
-    "weaviate": "http://localhost:8080",
+    "weaviate": "http://localhost:8087",
     "papers_only": false,
     "skip_journals": false,
     "skip_authors": false,
     "skip_taxonomy": false,
-    "timeout": 50,
-    "batch_size": 512
+    "timeout": 200,
+    "batch_size": 1
 }
